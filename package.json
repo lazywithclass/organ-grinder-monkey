@@ -1,0 +1,14 @@
+{
+  "name": "organ-grinder-monkey",
+  "version": "0.1.0",
+  "description": "Not as lethal as the Chaos Monkey, still a monkey nonetheless.",
+  "main": "index.js",
+  "scripts": {},
+  "repository": "",
+  "author": "alberto.zaccagni@lazywithclass.com",
+  "license": "BSD",
+  "dependencies": {},
+  "devDependencies": {
+    "aws-sdk": "^2.1.5"
+  }
+}
