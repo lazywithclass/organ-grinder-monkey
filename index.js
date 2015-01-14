@@ -24,8 +24,10 @@ function terminate(tags) {
     var instanceIds = data.Reservations.map(function(reservation) {
       return reservation.Instances[0].InstanceId;
     });
-
-    ec2.terminateInstances({ InstanceIds: instanceIds}, function(err, data) {
+    
+    var instanceId = instanceIds[Math.floor(Math.random() * instanceIds.length)];
+    
+    ec2.terminateInstances({ InstanceIds: [ instanceId ] }, function(err, data) {
       if (error) console.log(err);
       console.log(data);
     });
