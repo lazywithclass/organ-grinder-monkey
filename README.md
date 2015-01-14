@@ -9,9 +9,9 @@ Require and configure this module to shutdown ec2-instances, with your configura
 
 The following example will 
 
-* terminate all running instances that have the specified tags
+* terminate a random instance between all that have the specified tags
 * within a 1 ms timeout
-* before that it will log `'terminating`'
+* log `'terminating`' before terminating
 
 ```javascript
 var tags = {names: ['tag1', 'tag2'], values: ['1', '2']};
