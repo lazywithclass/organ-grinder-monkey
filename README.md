@@ -7,6 +7,8 @@ Require and configure this module to shutdown ec2-instances, with your configura
 
 ## How to use it
 
+### Terminate
+
 The following example will 
 
 * log `'terminating`' before terminating
@@ -23,6 +25,8 @@ function beforeHook(cb) {
 
 require('./index')(timeout, tags, beforeHook);
 ```
+
+### Change tag
 
 The following example will change tag
 
