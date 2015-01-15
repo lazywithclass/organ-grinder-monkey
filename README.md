@@ -23,3 +23,21 @@ function beforeHook(cb) {
 
 require('./index')(timeout, tags, beforeHook);
 ```
+
+The following example will change tag
+
+* change tag `tag1` from `1` to `2` to a random instance between all that have the specified tags
+* within a 1ms timeout
+* log `'terminating`' before terminating
+
+```javascript
+var timeout = 1;
+function beforeHook(cb) {
+  console.log('terminating!');
+  return cb();
+}
+var oldTags = {names: ['tag1'], values: ['1']};
+// note the uppercase keys, this is the syntax directly used by the sdk
+var newTags = [{Key: 'tag1', Value: '2'}];
+require('./index').changeTag(timeout, oldTags, newTags, beforeHook);
+```
