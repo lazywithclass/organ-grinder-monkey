@@ -37,7 +37,7 @@ The following example will change tag
 ```javascript
 var timeout = 1;
 function beforeHook(cb) {
-  console.log(changing tag!');
+  console.log('changing tag!');
   return cb();
 }
 var oldTags = {names: ['tag1'], values: ['1']};
