@@ -30,14 +30,14 @@ require('./index').terminate(timeout, tags, beforeHook);
 
 The following example will change tag
 
-* log `'terminating`' before changing tag
+* log `changing tag!`' before changing tag
 * change tag `tag1` from `1` to `2` to a random instance between all that have the specified tags
 * within a 1ms timeout
 
 ```javascript
 var timeout = 1;
 function beforeHook(cb) {
-  console.log('terminating!');
+  console.log(changing tag!');
   return cb();
 }
 var oldTags = {names: ['tag1'], values: ['1']};
