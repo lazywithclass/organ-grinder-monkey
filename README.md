@@ -11,7 +11,7 @@ Require and configure this module to shutdown ec2-instances, with your configura
 
 The following example will 
 
-* log `'terminating`' before terminating
+* log `'terminating!`' before terminating
 * terminate a random instance between all that have the specified tags
 * within a 1 ms timeout
 
@@ -30,7 +30,7 @@ require('./index').terminate(timeout, tags, beforeHook);
 
 The following example will change tag
 
-* log `changing tag!`' before changing tag
+* log '`changing tag!`' before changing tag
 * change tag `tag1` from `1` to `2` to a random instance between all that have the specified tags
 * within a 1ms timeout
 
