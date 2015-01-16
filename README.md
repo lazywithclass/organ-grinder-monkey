@@ -23,7 +23,7 @@ function beforeHook(cb) {
   return cb();
 }
 
-require('./index')(timeout, tags, beforeHook);
+require('./index').terminate(timeout, tags, beforeHook);
 ```
 
 ### Change tag
