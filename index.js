@@ -12,7 +12,7 @@ module.exports.changeTag = function(timeout, oldTags, newTags, beforeHook, after
   schedule(timeout, beforeHook, function() {
     getInstanceId(oldTags, function(id) {
       instanceId = instanceId || id;
-      ec2.createTags({ Resources: [id], Tags: newTags }, function(err, data) {
+      ec2.createTags({ Resources: [instanceId], Tags: newTags }, function(err, data) {
         if (err) console.log(err);
         afterHook(err, data);
       });
@@ -24,7 +24,7 @@ module.exports.terminate = function(timeout, tags, beforeHook, afterHook) {
   schedule(timeout, beforeHook, function() {
     getInstanceId(tags, function(id) {
       instanceId = instanceId || id;
-      ec2.terminateInstances({ InstanceIds: [ id ] }, function(err, data) {
+      ec2.terminateInstances({ InstanceIds: [ instanceId ] }, function(err, data) {
         if (err) console.log(err);
         afterHook(err, data);
       });
