@@ -7,8 +7,9 @@
   "repository": "",
   "author": "alberto.zaccagni@lazywithclass.com",
   "license": "BSD",
-  "dependencies": {},
-  "devDependencies": {
-    "aws-sdk": "^2.1.5"
-  }
+  "dependencies": {
+    "aws-sdk": "^2.1.5",
+    "async": "^1.4.2"
+  },
+  "devDependencies": {}
 }
