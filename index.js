@@ -6,27 +6,25 @@ AWS.config.update({
 });
 var ec2 = new AWS.EC2();
 
-var instanceId;
-
-module.exports.changeTag = function(timeout, oldTags, newTags, beforeHook, afterHook) {
+module.exports.changeTag = function(timeout, oldTags, newTags, instanceId, beforeHook, afterHook) {
   schedule(timeout, beforeHook, function() {
     getInstanceId(oldTags, function(id) {
       instanceId = instanceId || id;
       ec2.createTags({ Resources: [instanceId], Tags: newTags }, function(err, data) {
         if (err) console.log(err);
-        afterHook(err, data);
+        afterHook(err, data, instanceId);
       });
     });
   });
 };
 
-module.exports.terminate = function(timeout, tags, beforeHook, afterHook) {
+module.exports.terminate = function(timeout, tags, instanceId, beforeHook, afterHook) {
   schedule(timeout, beforeHook, function() {
     getInstanceId(tags, function(id) {
       instanceId = instanceId || id;
       ec2.terminateInstances({ InstanceIds: [ instanceId ] }, function(err, data) {
         if (err) console.log(err);
-        afterHook(err, data);
+        afterHook(err, data, instanceId);
       });
     });
   });
