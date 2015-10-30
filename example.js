@@ -7,7 +7,7 @@ var msInADay = 86400000;
 function changeTag(instanceId, done) {
   var oldTags = { names: ['some-tag'], values: ['true'] };
   var newTags = [{ Key: 'some-tag', Value: 'false' }];
-  monkey.changeTag(msInADay, oldTags, newTags, function(cb) {
+  monkey.changeTag(msInADay, oldTags, newTags, instanceId, function(cb) {
     exec('notify-send "...did he say terminate or update...?"');
     console.log('...did he say terminate or update...?');
     cb();
@@ -16,7 +16,7 @@ function changeTag(instanceId, done) {
 
 function terminate(instanceId, done) {
   var tags = { names: ['some-tag'], values: ['false'] };
-  monkey.terminate(1, tags, function(cb) {
+  monkey.terminate(120000, tags, instanceId, function(cb) {
     exec('notify-send "wait... let me fix this server..."');
     console.log('wait... let me fix this server...');
     cb();
